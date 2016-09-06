@@ -1,0 +1,8 @@
+h1 All Posts
+
+- @posts.each_with_index do |post, i|
+  = link_to post_path(post)
+    h2
+     = (i+1)
+     = ". #{post.title}"
+  p= post.body[0,20] + "..."
