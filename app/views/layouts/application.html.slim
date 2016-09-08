@@ -8,17 +8,23 @@ html
     = csrf_meta_tags
   body
     #sidebar
-      div= image_tag('logo.png', size: '36x24')
+      div= link_to(image_tag('logo.png', size: '36x24'), root_path)
 
       ul
         li: h6 Links
         li= link_to 'Home', posts_path
-        li= link_to 'About', '/about'
-        li= link_to 'Contact', '/contact'
+        li= link_to 'About', about_path
+        li= link_to 'Contact', contact_path
 
     #content
       .bar
-        =link_to 'New Post', new_post_path
+        - if user_signed_in?
+          =link_to 'New Post', new_post_path
+          =link_to 'Logout', destroy_user_session_path, method: :delete
+        - else
+          =link_to 'Login', new_user_session_path
+
+
 
       #wrapper
         - flash.each do |name, msg|
