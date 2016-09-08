@@ -1,0 +1,4 @@
+= simple_form_for ([@post, @post.comments.build]) do |f|
+    = f.input :name
+    = f.input :body, as: :text, input_html: { :cols => 50, :rows => 5 }
+    = f.button :submit

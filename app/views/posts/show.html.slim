@@ -1,10 +1,15 @@
 h1= @post.title
-
 p= simple_format(@post.body)
-
 p Post Id #{@post.id}
-
 p
   => link_to 'Edit Post', edit_post_path(@post)
   | |
   =< link_to 'Delete Post', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
+
+
+br
+br
+h2 Comments
+= render @post.comments.reverse
+
+= render 'comments/form'
