@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Blog
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    #sidebar
+      strong Blog
+      ul
+        li: h6 Links
+        li= link_to 'Home', posts_path
+        li= link_to 'About', posts_path
+        li= link_to 'Contact', posts_path
+
+    #content
+      .bar
+        =link_to 'New Post', new_post_path
+
+
+      #wrapper = yield
