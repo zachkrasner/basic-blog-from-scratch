@@ -20,4 +20,8 @@ html
         =link_to 'New Post', new_post_path
 
 
-      #wrapper = yield
+      #wrapper
+        - flash.each do |name, msg|
+          = content_tag(:div, msg)
+          
+        = yield
